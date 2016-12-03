@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Demands</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let delivery of demand" (click)="changeStatus('delivering',delivery.id)">
+        <h2>{{delivery.address.address_id}} - {{delivery.recipient}}</h2>
+      <div class="item-note" item-right>
+          <p>{{delivery.status}}</p>
+          <p>{{delivery.id}}</p>
+      </div>
+    </button>
+  </ion-list>
+  <div *ngIf="selectedItem" padding>
+  </div>
+</ion-content>
