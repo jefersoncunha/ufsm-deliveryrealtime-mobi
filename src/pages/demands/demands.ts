@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { DemandsSearch } from '../../providers/demands-search';
 import { Http } from '@angular/http';
+import {Page} from 'ionic-framework/ionic';
+
+
+import { DemandsSearch } from '../../providers/demands-search';
+import { Delivery } from '../delivery/delivery';
 
 @Component({
   selector: 'page-demands',
   templateUrl: 'demands.html',
   providers: [DemandsSearch]
 })
-
 export class Demands {
   public demand: any;
   constructor(
@@ -26,21 +29,21 @@ export class Demands {
       });
   }
 
-  changeStatus(status, id){
-    var link = 'http://localhost:8100/api/deliveries/'+id+'.json';
-    var data = {
-      "delivery":{
-        "status": status
-      }
-    };
-    this.http.put(link, data)
-    .map(res => res.json())
-    .subscribe(data => {
-      console.log(data);
 
-    }, error => {
-        console.log("Oooops!");
-    });
-  }
+  goToDelivey(delivery){
+      var link = 'http://localhost:8100/api/deliveries/'+delivery.address.address_id+'.json';
+      var data = {"delivery":{"status": 'delivering'}};
+      this.http.put(link, data)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log(data);
+
+      }, error => {
+          console.log("Oooops!");
+      });
+
+		this.navCtrl.push(Delivery, delivery);
+	}
+
 
 }

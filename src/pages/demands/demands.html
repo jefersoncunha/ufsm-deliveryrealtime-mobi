@@ -9,14 +9,12 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let delivery of demand" (click)="changeStatus('delivering',delivery.id)">
-        <h2>{{delivery.address.address_id}} - {{delivery.recipient}}</h2>
-      <div class="item-note" item-right>
-          <p>{{delivery.status}}</p>
-          <p>{{delivery.id}}</p>
-      </div>
+    <button ion-item *ngFor="let delivery of demand" (click)="goToDelivey(delivery)">
+        <h2>{{delivery.address.address_id}} - {{delivery.recipient}} </h2>
+        <p>{{delivery.status}}</p>
     </button>
   </ion-list>
   <div *ngIf="selectedItem" padding>
   </div>
+
 </ion-content>
