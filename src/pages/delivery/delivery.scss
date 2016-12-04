@@ -1,16 +1,21 @@
-.ios, .md {
+home-delivery {
 
-    home-delivery {
+  ion-card.adv-map p {
+    font-size: 0.7em !important;
+  }
 
-      .scroll-content {
-        height: 100%
-      }
+  button[fab].fab-map {
+    top: calc(100% - 35px);
+    z-index: 50;
+  }
 
-      #map {
-        width: 100%;
-        height: 100%;
-      }
+  .item-bold {
+    font-weight: bold;
+  }
 
-    }
+  ion-content.cards-bg {
+    background-color: #f4f4f7;
+  }
+
 
 }

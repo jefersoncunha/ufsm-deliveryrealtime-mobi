@@ -1,7 +1,13 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
+
+import { LaunchNavigator, LaunchNavigatorOptions } from 'ionic-native';
+
+
 import { LocationTracker } from '../../providers/location-tracker';
+
+
 import { Http } from '@angular/http';
 
 @Component({
@@ -11,15 +17,27 @@ import { Http } from '@angular/http';
 
 
 export class Delivery {
+  public delivery: any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public locationTracker: LocationTracker,
-    public http: Http
+    public http: Http,
   ){
+    this.delivery = navParams.data
     this.start();
   }
 
+
+  navegationStart(){
+    // let options: LaunchNavigatorOptions = {
+    //   start: 'London, ON',
+    //   app: LaunchNavigator.APPS.UBER
+    // };
+    //
+    LaunchNavigator.navigate("London, UK");
+
+  }
 
   changeStatus(status, id){
     var link = 'http://localhost:8100/api/deliveries/'+id+'.json';

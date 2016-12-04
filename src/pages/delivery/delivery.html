@@ -1,38 +1,45 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>DELIVERY</ion-title>
-  </ion-navbar>
-</ion-header>
-<!--
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
-</ion-content> --> -->
+<ion-card>
 
-<ion-content>
-  <h3>Current Latitude: {{locationTracker.lat}}</h3>
-  <h3>Current Longitude: {{locationTracker.lng}}</h3>
+  <ion-card class="adv-map">
+    <div style="position: relative">
+      <img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-map-madison.png">
+      <ion-fab right top>
+        <button ion-fab class="fab-map" (click)="navegationStart()">
+          <ion-icon name='pin'></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
 
-  <!-- <button ion-button full primary (click)="start()">Start Tracking</button>
-  <button ion-button full primary (click)="stop()">Stop Tracking</button>
+    <ion-item>
 
-  <button ion-button full primary (click)="postLocation()">PostLocation</button> -->
+      <ion-icon name="contact"  large item-left></ion-icon>
+      <h2>{{delivery.recipient}}</h2>
+      <h3>{{delivery.address.street}}, {{delivery.address.number}}</h3>
+      <p>{{delivery.address.neighborhood}}, {{delivery.address.postal_code}}</p>
+      <p>{{delivery.address.city}}, {{delivery.address.state}}</p>
+      <p>{{delivery.address.latitude}}, {{delivery.address.longitude}}</p>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="pin" large item-left></ion-icon>
+      <h3>Latitude: {{locationTracker.lat}}</h3>
+      <h3>Longitude: {{locationTracker.lng}}</h3>
+    </ion-item>
+
+    <ion-item actions>
+      <ion-icon name="volume-up"  large item-left></ion-icon>
+      <h3>Status: {{delivery.status}}</h3>
+    </ion-item>
+
+    <ion-item actions>
+      <button ion-button full icon-left (click)="changeStatus('delivered',1)">
+        <ion-icon name="arrow-dropdown"></ion-icon>
+        Entregue!
+      </button>
+    </ion-item>
 
 
-  <button ion-button full primary (click)="changeStatus('delivered',1)">Entregue!!!</button>
 
 
-</ion-content>
+</ion-card>
