@@ -21,7 +21,7 @@ export class LocationTracker {
 
   postLocation(){
 
-    var link = 'http://localhost:8100/api/positions';
+    var link = 'https://ufsm-deliveryrealtime-api.herokuapp.com/api/positions';
     var data = {
       "position":{
         "user_id": 10,
@@ -83,7 +83,7 @@ export class LocationTracker {
     this.watch = Geolocation.watchPosition(options).filter((p: any) => p.code === undefined).subscribe((position: Geoposition) => {
 
 
-      var link = 'http://localhost:8100/api/positions';
+      var link = 'https://ufsm-deliveryrealtime-api.herokuapp.com/api/positions';
       var data = {
         "position":{
           "user_id": 1,

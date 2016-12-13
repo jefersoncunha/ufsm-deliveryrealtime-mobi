@@ -21,7 +21,7 @@ export class DemandsSearch {
     }
 
     return new Promise(resolve => {
-      this.http.get('http://localhost:8100/api/deliveries.json')
+      this.http.get('https://ufsm-deliveryrealtime-api.herokuapp.com/api/deliveries.json')
         .map(res => res.json())
         .subscribe(data => {
           console.log("GET",data);

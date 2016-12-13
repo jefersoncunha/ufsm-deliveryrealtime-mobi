@@ -29,9 +29,8 @@ export class Demands {
       });
   }
 
-
   goToDelivey(delivery){
-      var link = 'http://localhost:8100/api/deliveries/'+delivery.address.address_id+'.json';
+      var link = 'https://ufsm-deliveryrealtime-api.herokuapp.com/api/deliveries/'+delivery.address.address_id+'.json';
       var data = {"delivery":{"status": 'delivering'}};
       this.http.put(link, data)
       .map(res => res.json())

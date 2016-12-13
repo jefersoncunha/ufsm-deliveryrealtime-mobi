@@ -37,7 +37,7 @@ export class Delivery {
   }
 
   changeStatus(status, id){
-    var link = 'http://localhost:8100/api/deliveries/'+id+'.json';
+    var link = 'https://ufsm-deliveryrealtime-api.herokuapp.com/api/deliveries/'+id+'.json';
     var data = {
       "delivery":{
         "status": status
