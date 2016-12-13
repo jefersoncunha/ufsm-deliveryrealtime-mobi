@@ -1,13 +1,9 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
-
+import { Demands } from '../demands/demands';
 import { LaunchNavigator, LaunchNavigatorOptions } from 'ionic-native';
-
-
 import { LocationTracker } from '../../providers/location-tracker';
-
-
 import { Http } from '@angular/http';
 
 @Component({
@@ -18,6 +14,7 @@ import { Http } from '@angular/http';
 
 export class Delivery {
   public delivery: any;
+  demands = Demands;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
